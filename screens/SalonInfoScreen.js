@@ -52,7 +52,9 @@ export function SalonInfoScreen ({navigation, route}) {
             >
                 <Post title={'Выбрать мастера'} image={master} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => navigation.navigate('Timetable')}
+            >
                 <Post title={'Выбрать время'} image={clock} />
             </TouchableOpacity>
         </BackgroundView>
