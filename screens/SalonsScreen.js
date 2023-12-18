@@ -42,7 +42,7 @@ export default function SalonsScreen({ navigation: { navigate }, route }) {
                 data={salons}
                 renderItem={({ item }) => (
                     <TouchableOpacity
-                        onPress={() => navigate('Services', { id: item.id })}
+                        onPress={() => navigate('SalonInfo', { id: item.id })}
                     >
                         <Post
                             title={item.name}

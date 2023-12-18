@@ -12,16 +12,35 @@ const PostView = styled.View`
   flex-direction: row;
 `;
 
-const PostImage = styled.Image`
+const ImageWrapper = styled.View`
+background-color: rgba(196, 196, 196, 1);
+  width: 50px;
+  height: 50px;
+  border-radius: 24px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const RemotePostImage = styled.Image`
+  background-color: rgba(196, 196, 196, 1);
   width: 50px;
   height: 50px;
   border-radius: 24px;
   margin-right: 8px;
 `;
 
+const LocalPostImage = styled.Image`
+  background-color: rgba(196, 196, 196, 1);
+  width: 24px;
+`;
+
+
 const ContentView = styled.View`
     display: flex;
     flex-direction: column;
+    justify-content: center;
 `;
 
 const PostTitle = styled.Text`
@@ -32,11 +51,18 @@ const PostTitle = styled.Text`
 export default function Post({ title, image, address = undefined }) {
   return (
     <PostView>
-      <PostImage
-        source={{
-          uri: image,
-        }}
-      />
+      {typeof image === 'string' ?
+        <RemotePostImage
+          source={{
+            uri: image,
+          }}
+        /> :
+        <ImageWrapper>
+          <LocalPostImage
+            source={image}
+          />
+        </ImageWrapper>
+      }
       <ContentView>
         <PostTitle>{title}</PostTitle>
         {address ? <Text>{address}</Text> : false}
