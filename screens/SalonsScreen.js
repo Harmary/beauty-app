@@ -23,10 +23,17 @@ export default function SalonsScreen({ navigation: { navigate }, route }) {
     React.useEffect(fetchSalons, []);
 
     if (isLoading) return (
-        <LoadView>
-            <ActivityIndicator size="large" />
-            <Text>Загрузка...</Text>
-        </LoadView>
+        <BackgroundView BackgroundView
+            colors={["#DEDBD2", "#B0C4B1"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            locations={[0.1, 0.8]}
+        >
+            <LoadView>
+                <ActivityIndicator size="large" />
+                <Text>Загрузка...</Text>
+            </LoadView>
+        </BackgroundView>
     )
 
     return (

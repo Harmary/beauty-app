@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, Image } from "react-native";
 import styled from "styled-components/native";
 
 const PostView = styled.View`
@@ -13,7 +13,7 @@ const PostView = styled.View`
 `;
 
 const ImageWrapper = styled.View`
-background-color: rgba(196, 196, 196, 1);
+  background-color: rgba(196, 196, 196, 1);
   width: 50px;
   height: 50px;
   border-radius: 24px;
@@ -36,7 +36,6 @@ const LocalPostImage = styled.Image`
   width: 24px;
 `;
 
-
 const ContentView = styled.View`
     display: flex;
     flex-direction: column;
@@ -52,11 +51,12 @@ export default function Post({ title, image, address = undefined }) {
   return (
     <PostView>
       {typeof image === 'string' ?
-        <RemotePostImage
+          <RemotePostImage
           source={{
             uri: image,
           }}
-        /> :
+          />
+         :
         <ImageWrapper>
           <LocalPostImage
             source={image}
