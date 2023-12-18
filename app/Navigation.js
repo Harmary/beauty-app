@@ -10,10 +10,10 @@ const Stack = createNativeStackNavigator();
 export function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Services' component={ServiceScreen} />
-        <Stack.Screen name='Salons' component={SalonsScreen} />
-        <Stack.Screen name='SalonInfo' component={SalonInfoScreen} />
+      <Stack.Navigator headerMode="none">
+        <Stack.Screen name='Services' component={ServiceScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='Salons' component={SalonsScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='SalonInfo' component={SalonInfoScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
