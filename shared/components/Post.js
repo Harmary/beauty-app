@@ -15,7 +15,8 @@ const PostView = styled.View`
 const PostImage = styled.Image`
   width: 50px;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 24px;
+  margin-right: 8px;
 `;
 
 const ContentView = styled.View`
@@ -28,17 +29,17 @@ const PostTitle = styled.Text`
     font-weight: 600
 `
 
-export default function Post({ title, image, address }) {
+export default function Post({ title, image, address = undefined }) {
   return (
     <PostView>
       <PostImage
         source={{
-          uri: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/775.jpg",
+          uri: image,
         }}
       />
       <ContentView>
         <PostTitle>{title}</PostTitle>
-        <Text>{address}</Text>
+        {address ? <Text>{address}</Text> : false}
       </ContentView>
     </PostView>
   );
